@@ -10,6 +10,7 @@ import GlobalStyles from "./themes/Global";
 import Light from "./themes/Ligth";
 import store from "./store/reducers/store";
 import { Loading, Notify, Alert } from "./components";
+import { LocationProvider } from "./context/LocationContext";
 
 const App = () => {
   return (
@@ -20,7 +21,9 @@ const App = () => {
         <Notify />
         <Alert />
         <BrowserRouter>
-          <AppRoutes />
+          <LocationProvider>
+            <AppRoutes />
+          </LocationProvider>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

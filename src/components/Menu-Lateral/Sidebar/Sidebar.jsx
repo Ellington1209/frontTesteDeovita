@@ -5,7 +5,7 @@ import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 
-import Logo from "../../../image/logoSemFundo.png";
+import Logo from "../../../image/logo.png";
 import PerfilsMenu from "./PerfilsMenu";
 
 const drawerWidth = 230;
@@ -61,14 +61,14 @@ const Sidebar = (props) => {
       open={open}
     >
       <DrawerHeader>
-        <img src={Logo} alt="Logo" style={{ marginRight: '30px' }} />
+        <img src={Logo} alt="Logo" style={{ marginRight: '60px', height: '110px' }} />
       </DrawerHeader>
 
 
       <Divider />
       <Box sx={{ overflow: "auto" }}>
         <List>
-          {user.perfils_id && PerfilsMenu[user.perfils_id - 1].map((p, index) => {
+          {user.group_id && PerfilsMenu[user.group_id - 1].map((p, index) => {
             const IconComponent = NewHOC(p.icon);
 
             return (

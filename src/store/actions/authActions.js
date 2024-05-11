@@ -1,6 +1,6 @@
 import { Http } from "../../api";
 import { changeloading } from "./loading.action";
-import { changeNotify } from './notify.actions';
+import { changeNotify } from "./notify.actions";
 
 export const actionTypes = {
   GET_TOKEN: "GET_TOKEN",
@@ -28,7 +28,6 @@ export const removeToken = () => (dispatch) => {
     type: actionTypes.LOGOUT,
   });
 };
-
 
 export const loginSuccess = (bool) => ({
   type: actionTypes.SUCCESS,
@@ -82,13 +81,12 @@ export const setUserToken = (token, user) => (dispatch) => {
   dispatch(loginSuccess(true));
 };
 
-
 export const login = (credentials) => {
   return (dispatch) => {
     dispatch(changeloading({ open: true, msg: "Autenticando usuário..." }));
 
     return Http.post("/login", {
-      email: credentials.email,
+      name_user: credentials.name_user,
       password: credentials.password,
     })
       .then((res) => {
